@@ -1,0 +1,11 @@
+{
+  "name": "graphql-movie-backend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:wkdaudwn11/graphql-movie-backend.git",
+  "author": "JangMyungJoo <wkdaudwn1028@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "graphql-yoga": "^1.18.3"
+  }
+}
