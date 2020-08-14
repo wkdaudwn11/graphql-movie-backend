@@ -1,3 +1,4 @@
+// 영화 목록
 let movies = [
   {
     id: 0,
@@ -21,13 +22,24 @@ let movies = [
   },
 ];
 
+/**
+ * @desc  영화 목록을 리턴해주는 함수
+ */
 export const getMovies = () => movies;
 
-export const getById = (id) => {
+/**
+ * @desc  영화 검색
+ * @param {Number} id
+ */
+export const searchMovieGetById = (id) => {
   const filteredMovies = movies.filter((movie) => id === movie.id);
   return filteredMovies[0];
 };
 
+/**
+ * @desc  영화 삭제
+ * @param {Number} id
+ */
 export const deleteMovie = (id) => {
   const cleanMovies = movies.filter((movie) => movie.id !== id);
   if (movies.length > cleanMovies.length) {
@@ -36,4 +48,28 @@ export const deleteMovie = (id) => {
   } else {
     return false;
   }
+};
+
+/**
+ * @desc  movies 배열의 마지막 요소를 리턴해주는 함수
+ */
+const getLastMovie = () => {
+  return movies[movies.length - 1];
+};
+
+/**
+ * @desc  영화 추가
+ * @param {String}  name
+ * @param {Number}  score
+ */
+export const addMovie = (name, score) => {
+  if (!name || !score) return;
+  const lastMovie = getLastMovie();
+  const newMovie = {
+    id: lastMovie.id + 1,
+    name,
+    score,
+  };
+  movies = movies.concat(newMovie);
+  return newMovie;
 };
